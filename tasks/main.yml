@@ -8,10 +8,10 @@
   docker_container:
     name: "{{ item }}"
     state: absent
-  with_items:}}
-  - {{ redis_cluster_master_name }}
-  - {{ redis_cluster_slave_name }}
-  - {{ redis_container_name }}
+  with_items:
+  - "{{ redis_cluster_master_name }}}
+  - "{{ redis_cluster_slave_name }}"
+  - "{{ redis_container_name }}"
 
 - name: Create master redis if cluster is enabled
   docker_container:
