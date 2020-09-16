@@ -1,6 +1,9 @@
 ---
 # tasks file for ansible-role-redis
 
+- name: Install dependinces
+  include_tasks: predependices.yaml
+
 - name: Check | Do some check
   import_tasks: check.yaml
 
