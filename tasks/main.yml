@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-role-redis
+
+- name: Check | Do some check
+  import_tasks: check.yaml
+
+- name: Delete old redis container
+  docker_container:
+    name: "{{ item }}"
+    state: absent
+  with_items:}}
+  - {{ redis_cluster_master_name }}
+  - {{ redis_cluster_slave_name }}
+  - {{ redis_container_name }}
+
+- name: Create master redis if cluster is enabled
+  docker_container:
+    name: "{{ redis_container_name }}"
+    image: "redis:buster"
+    state: started
+    restart: yes
+    ports:
+    - "6379:6379"
