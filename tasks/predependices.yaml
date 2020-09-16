@@ -1,9 +1,13 @@
+- name: Make sure epel-release repo enabled
+  yum:
+    name: epel-release
+    state: present
+
 - name: Make sure packages are installed
   yum:
     name: "{{ item }}"
     state: present
   with_items:
-  - epel-release
   - python-setuptools
   - python2-pip
 
