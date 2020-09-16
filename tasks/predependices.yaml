@@ -4,6 +4,7 @@
     state: present
   with_items:
   - python-setuptools
+  - python-pip
 
 - name: install dependices
   pip:
