@@ -1,3 +1,10 @@
+- name: Make sure packages are installed
+  yum:
+    name: {{ item }}
+    state: present
+  with_items:
+  - python-setuptools
+
 - name: install dependices
   pip:
     name: "{{ item }}"
